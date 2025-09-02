@@ -1,7 +1,7 @@
 <?php
 // Database configuration
 define('DB_HOST', 'mysql');
-define('DB_USER', 'admin');
+define('DB_USER', 'appuser');
 define('DB_PASS', 'txori4737');
 define('DB_NAME', 'retail_store');
 
