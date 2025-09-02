@@ -62,10 +62,55 @@ RUN mkdir -p /var/run/apache2 && \
     chmod -R g=u /var/www /var/run/apache2 /var/lock/apache2 /var/log/apache2 && \
     chmod -R a+rwx /var/run/apache2
 
-# Copy a simple PHP info script for testing
+# Copy a simple PHP info script for testing and your app source code
 COPY index.php /var/www/html/
 RUN chown www-data:www-data /var/www/html/index.php && \
     chmod g+rw /var/www/html/index.php
+COPY add_customer.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/add_customer.php && \
+    chmod g+rw /var/www/html/add_customer.php
+COPY add_product.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/add_product.php && \
+    chmod g+rw /var/www/html/add_product.php
+COPY config.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/config.php && \
+    chmod g+rw /var/www/html/config.php	
+COPY create_order.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/add_product.php && \
+    chmod g+rw /var/www/html/create_order.php
+COPY customers.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/customers.php && \
+    chmod g+rw /var/www/html/customers.php
+COPY dashboard.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/dashboard.php && \
+    chmod g+rw /var/www/html/dashboard.php
+COPY edit_product.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/edit_product.php && \
+    chmod g+rw /var/www/html/edit_product.php
+COPY functions.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/functions.php && \
+    chmod g+rw /var/www/html/functions.php
+COPY invoice.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/invoice.php && \
+    chmod g+rw /var/www/html/invoice.php
+COPY login.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/login.php && \
+    chmod g+rw /var/www/html/login.php
+COPY logout.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/logout.php && \
+    chmod g+rw /var/www/html/logout.php
+COPY navbar.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/navbar.php && \
+    chmod g+rw /var/www/html/navbar.php
+COPY orders.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/orders.php && \
+    chmod g+rw /var/www/html/orders.php
+COPY products.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/products.php && \
+    chmod g+rw /var/www/html/products.php
+COPY pwd.php /var/www/html/
+RUN chown www-data:www-data /var/www/html/pwd.php && \
+    chmod g+rw /var/www/html/pwd.php
 
 # Expose port 8080 (OpenShift uses random ports, but we need to listen on 8080)
 EXPOSE 8080
